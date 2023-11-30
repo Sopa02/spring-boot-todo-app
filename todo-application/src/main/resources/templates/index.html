@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="hu" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.2/css/bootstrap.min.css}" />
+    <title>ToDo Application</title>
+</head>
+<body>
+<div class="container">
+    <h1>ToDo Application</h1>
+    <hr/>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>Actions</th>
+            <th>Id</th>
+            <th>Description</th>
+            <th>Done</th>
+            <th>Created</th>
+            <th>Modified</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="todo : ${todos}">
+            <td>
+                <a th:href="@{/todos/{id}/edit(id=${todo.id})}">Edit</a>
+                <a th:href="@{/todos/{id}/delete(id=${todo.id})}">Delete</a>
+            </td>
+            <td>&nbsp;</td>
+            <td th:text="${todo.id}">Id</td>
+            <td th:text="${todo.description}">Description</td>
+            <td>
+                <span th:if="${todo.isDone} == true" th:text="Yes" />
+                <span th:unless="${item.isDone} == true" th:text="No" />
+            </td>
+            <td th:text="${todo.createdAt}">Created</td>
+            <td th:text="${todo.updatedAt}">Modified</td>
+        </tr>
+        </tbody>
+    </table>
+    <p>
+        <a class="btn btn-outline-success" href="/create-todo">
+            <i class="bi bi-plus-square-fill">
+                Create a new ToDo
+            </i>
+        </a>
+    </p>
+</div>
+<script th:src="@{/webjars/bootstrap/5.2.2/js/bootstrap.min.js}"></script>
+</body>
+</html>
