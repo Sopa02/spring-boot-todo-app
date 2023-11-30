@@ -23,17 +23,13 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="todo : ${todos}">
-            <td>
-                <a th:href="@{/todos/{id}/edit(id=${todo.id})}">Edit</a>
-                <a th:href="@{/todos/{id}/delete(id=${todo.id})}">Delete</a>
-            </td>
+        <tr th:each="todo : ${todoItems}">
             <td>&nbsp;</td>
             <td th:text="${todo.id}">Id</td>
             <td th:text="${todo.description}">Description</td>
             <td>
                 <span th:if="${todo.isDone} == true" th:text="Yes" />
-                <span th:unless="${item.isDone} == true" th:text="No" />
+                <span th:unless="${todo.isDone} == true" th:text="No" />
             </td>
             <td th:text="${todo.createdAt}">Created</td>
             <td th:text="${todo.updatedAt}">Modified</td>
