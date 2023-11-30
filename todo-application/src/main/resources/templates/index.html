@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.2/css/bootstrap.min.css}" />
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap-icons/1.10.2/bootstrap-icons.min.css}" />
     <title>ToDo Application</title>
 </head>
 <body>
@@ -24,7 +25,16 @@
         </thead>
         <tbody>
         <tr th:each="todo : ${todoItems}">
-            <td>&nbsp;</td>
+            <td>
+                <div class="btn btn-group-sm" role="group">
+                    <a class = "btn btn-info" th:href="@{/edit/{id}(id=${todo.id})}">
+                        <i class="bi-pencil-fill"></i>
+                    </a>
+                    <a class = "btn btn-danger" th:href="@{/delete/{id}(id=${todo.id})}">
+                        <i class="bi-trash-fill"></i>
+                    </a>
+                </div>
+            </td>
             <td th:text="${todo.id}">Id</td>
             <td th:text="${todo.description}">Description</td>
             <td>

@@ -22,6 +22,13 @@ public class TodoItem implements Serializable {
     private Instant createdAt;
     private Instant updatedAt;
 
+    public boolean getIsDone() {
+        return isDone;
+    }
+
+    public void setIsDone(boolean isDone) {
+        this.isDone = isDone;
+    }
     @Override
     public String toString(){
         return String.format("TodoItem[id=%d, description='%s', isDone='%s', createdAt='%s', updatedAt='%s']",
