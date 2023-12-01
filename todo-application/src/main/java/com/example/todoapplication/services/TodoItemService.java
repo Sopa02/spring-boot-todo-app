@@ -16,6 +16,10 @@ public class TodoItemService {
         return todoItemRepository.findAll();
     }
 
+    public Iterable<TodoItem> getAllByIsDone(Boolean isDone){
+        return todoItemRepository.findAllByIsDone(isDone);
+    }
+
     public Optional<TodoItem> getById(Long id){
         return todoItemRepository.findById(id);
     }

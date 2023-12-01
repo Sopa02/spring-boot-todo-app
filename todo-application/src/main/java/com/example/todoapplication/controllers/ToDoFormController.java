@@ -50,4 +50,16 @@ public class ToDoFormController {
         model.addAttribute("todo", todoItem);
         return "edit-todo-item";
     }
+
+    @PostMapping("/todo/{id}")
+    public String updateTodoItem(@PathVariable("id") Long id, @Valid TodoItem todoItem, BindingResult result, Model model){
+        TodoItem item = todoItemService
+                .getById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid todo item Id:" + id));
+        item.setIsDone(todoItem.getIsDone());
+        item.setDescription(todoItem.getDescription());
+        item.setDueDate(todoItem.getDueDate());
+        todoItemService.create(item);
+        return "redirect:/";
+    }
 }

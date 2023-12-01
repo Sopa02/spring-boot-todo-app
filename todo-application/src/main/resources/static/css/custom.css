@@ -1,0 +1,20 @@
+.p-btn-outline-success {
+    color: #198754;
+    border-color: #198754;
+    border: 1px solid;
+    width: fit-content;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+
+
+.p-btn-outline-danger {
+    color: #dc3545;
+    border-color: #dc3545;
+    border: 1px solid;
+    width: fit-content;
+    border-radius: 5px;
+    padding: 5px;
+}
+

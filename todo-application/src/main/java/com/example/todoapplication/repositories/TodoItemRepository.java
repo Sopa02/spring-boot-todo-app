@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TodoItemRepository extends JpaRepository<TodoItem, Long> {
+    Iterable<TodoItem> findAllByIsDone(Boolean isDone);
 }

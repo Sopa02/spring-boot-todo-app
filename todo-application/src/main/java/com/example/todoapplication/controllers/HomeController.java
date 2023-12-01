@@ -15,6 +15,8 @@ public class HomeController {
     public ModelAndView index() {
         ModelAndView modelAndView = new ModelAndView("index");
         modelAndView.addObject("todoItems", todoItemService.getAll());
+        modelAndView.addObject("completedTasksCount", todoItemService.getAllByIsDone(true).spliterator().getExactSizeIfKnown());
+        modelAndView.addObject("notCompletedTasksCount", todoItemService.getAllByIsDone(false).spliterator().getExactSizeIfKnown());
         return modelAndView;
     }
 }
