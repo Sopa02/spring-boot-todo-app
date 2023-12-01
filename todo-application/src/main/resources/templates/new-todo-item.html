@@ -27,7 +27,14 @@
                         <label for="description">Description</label>
                         <input type="text" th:field="*{description}"
                                class="form-control" id="description" placeholder="Enter description">
-
+                            <label for="dueInput">Due:</label>
+                            <input type="datetime-local"
+                                   id="dueInput"
+                                   name="dueInput"
+                                   th:field="*{dueDate}"
+                                   class="form-control"
+                                   required="required"
+                            />
                         <button type="submit" class="btn btn-outline-success mt-3">
                             <i class="bi bi-plus-square-fill">Create</i>
                         </button>
@@ -40,5 +47,6 @@
     </div>
 </div>
 <script th:src="@{/webjars/bootstrap/5.2.2/js/bootstrap.min.js}"></script>
+<script src="dateTimeInput.js"></script>
 </body>
 </html>

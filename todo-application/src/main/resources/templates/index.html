@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.2/css/bootstrap.min.css}" />
     <link th:rel="stylesheet" th:href="@{/webjars/bootstrap-icons/1.10.2/bootstrap-icons.min.css}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.2/font/bootstrap-icons.min.css" />
     <title>ToDo Application</title>
 </head>
 <body>
@@ -21,6 +22,7 @@
             <th>Done</th>
             <th>Created</th>
             <th>Modified</th>
+            <th>Due</th>
         </tr>
         </thead>
         <tbody>
@@ -41,8 +43,9 @@
                 <span th:if="${todo.isDone} == true" th:text="Yes" />
                 <span th:unless="${todo.isDone} == true" th:text="No" />
             </td>
-            <td th:text="${todo.createdAt}">Created</td>
-            <td th:text="${todo.updatedAt}">Modified</td>
+            <td th:text="${todo.createdAtFormatted}">Created</td>
+            <td th:text="${todo.updatedAtFormatted}">Modified</td>
+            <td th:text="${todo.dueDateFormatted}">Due</td>
         </tr>
         </tbody>
     </table>

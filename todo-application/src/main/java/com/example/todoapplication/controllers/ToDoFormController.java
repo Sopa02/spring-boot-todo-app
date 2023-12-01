@@ -23,11 +23,15 @@ public class ToDoFormController {
 
     @PostMapping("/todo")
     public String createTodoItem(@Valid TodoItem todoItem, BindingResult bindingResult, Model model ){
-        if(!todoItem.getDescription().trim().isEmpty()){
+        if(!todoItem.getDescription().trim().isEmpty()
+                && !todoItem.getDueDate().toString().isEmpty()){
+
             TodoItem item = new TodoItem();
             item.setDescription(todoItem.getDescription());
             item.setIsDone(false);
+            item.setDueDate(todoItem.getDueDate());
             todoItemService.create(item);
+
         }
         return "redirect:/create-todo";
     }
