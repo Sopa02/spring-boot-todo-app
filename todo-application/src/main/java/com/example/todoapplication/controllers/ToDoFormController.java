@@ -30,6 +30,7 @@ public class ToDoFormController {
             item.setDescription(todoItem.getDescription());
             item.setIsDone(false);
             item.setDueDate(todoItem.getDueDate());
+            item.setPriority(todoItem.getPriority());
             todoItemService.create(item);
 
         }
@@ -59,6 +60,7 @@ public class ToDoFormController {
         item.setIsDone(todoItem.getIsDone());
         item.setDescription(todoItem.getDescription());
         item.setDueDate(todoItem.getDueDate());
+        item.setPriority(todoItem.getPriority());
         todoItemService.create(item);
         return "redirect:/";
     }

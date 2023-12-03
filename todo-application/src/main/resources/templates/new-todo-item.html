@@ -35,6 +35,16 @@
                                    class="form-control"
                                    required="required"
                             />
+                        <select
+                                id="priorityInput"
+                                name="priorityInput"
+                                th:field="*{priority}"
+                                class="form-control"
+                                required="required">
+                            <option value="1">Low</option>
+                            <option value="2">Medium</option>
+                            <option value="3">High</option>
+                        </select>
                         <button type="submit" class="btn btn-outline-success mt-3">
                             <i class="bi bi-plus-square-fill">Create</i>
                         </button>

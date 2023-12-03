@@ -18,6 +18,7 @@
         <tr>
             <th>Actions</th>
             <th>Id</th>
+            <th>Priority</th>
             <th>Description</th>
             <th>Done</th>
             <th>Created</th>
@@ -41,6 +42,11 @@
                 </div>
             </td>
             <td th:text="${todo.id}">Id</td>
+            <td class="bigger-icon">
+                <i th:if="${todo.priority == 1}" class="bi bi-chevron-down p-btn-outline-success"></i>
+                <i th:if="${todo.priority == 2}" class="bi bi-chevron-up p-btn-outline-warning"></i>
+                <i th:if="${todo.priority == 3}" class="bi bi-chevron-double-up p-btn-outline-danger"></i>
+            </td>
             <td th:text="${todo.description}">Description</td>
             <td>
                 <span th:if="${todo.isDone} == true" th:text="Yes" />
@@ -65,17 +71,17 @@
 
     <div class="d-flex justify-content-center align-items-center">
         <p class="text-center p-btn-outline-success margin-sides-10">
-            <i class="bi bi-check-square-fill"></i>
+            <i class="bi bi-calendar-check"></i>
             Tasks completed:
             <span th:text="${completedTasksCount}" class="text-success"></span>
         </p>
-        <p class="text-center p-btn-outline-clock margin-sides-10">
+        <p class="text-center p-btn-outline-warning margin-sides-10">
             <i class="bi bi-clock"></i>
             Tasks to be completed:
             <span th:text="${notCompletedTasksCount}" class="text-warning"></span>
         </p>
         <p class="text-center p-btn-outline-danger margin-sides-10">
-            <i class="bi bi-x-square-fill"></i>
+            <i class="bi bi-calendar-x"></i>
             Tasks overdue:
             <span th:text="${overdueTasksCount}" class="text-danger"></span>
         </p>

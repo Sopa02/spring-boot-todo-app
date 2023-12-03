@@ -27,6 +27,8 @@ public class TodoItem implements Serializable {
     private Instant updatedAt;
     @Transient
     private boolean isOverdue;
+    // Priority, can be LOW - 1, MEDIUM - 2, HIGH - 3
+    private int priority;
     
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private LocalDateTime dueDate;
@@ -78,4 +80,5 @@ public class TodoItem implements Serializable {
     public void setIsOverdue() {
         isOverdue = dueDate.isBefore(LocalDateTime.now()) && !isDone;
     }
+
 }

@@ -16,7 +16,7 @@
     padding: 5px;
 }
 
-.p-btn-outline-clock {
+.p-btn-outline-warning {
     color: #dcc035;
     border-color: #dcc035;
     border: 1px solid;
@@ -28,4 +28,7 @@
 .margin-sides-10 {
     margin-left: 10px;
     margin-right: 10px;
+}
+.bigger-icon{
+    font-size: 1.5rem;
 }
