@@ -25,7 +25,9 @@ public class TodoItem implements Serializable {
     private boolean isDone;
     private Instant createdAt;
     private Instant updatedAt;
-
+    @Transient
+    private boolean isOverdue;
+    
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private LocalDateTime dueDate;
     public boolean getIsDone() {
@@ -70,10 +72,10 @@ public class TodoItem implements Serializable {
     private String formatNumber(int number) {
         return number < 10 ? "0" + number : String.valueOf(number);
     }
-    public static long countCompletedTasks(List<TodoItem> todoItems) {
-        return todoItems.stream().filter(TodoItem::getIsDone).count();
+    public boolean getIsOverdue() {
+        return dueDate.isBefore(LocalDateTime.now()) && !isDone;
     }
-    public static long countNotCompletedTasks(List<TodoItem> todoItems) {
-        return todoItems.stream().filter(todoItem -> !todoItem.getIsDone()).count();
+    public void setIsOverdue() {
+        isOverdue = dueDate.isBefore(LocalDateTime.now()) && !isDone;
     }
 }

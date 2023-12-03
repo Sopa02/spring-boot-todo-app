@@ -7,8 +7,6 @@
     padding: 5px;
 }
 
-
-
 .p-btn-outline-danger {
     color: #dc3545;
     border-color: #dc3545;
@@ -18,3 +16,16 @@
     padding: 5px;
 }
 
+.p-btn-outline-clock {
+    color: #dcc035;
+    border-color: #dcc035;
+    border: 1px solid;
+    width: fit-content;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.margin-sides-10 {
+    margin-left: 10px;
+    margin-right: 10px;
+}

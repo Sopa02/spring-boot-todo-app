@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.2/css/bootstrap.min.css}" />
-    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap-icons/1.10.2/bootstrap-icons.min.css}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.2/font/bootstrap-icons.min.css" />
     <link rel="stylesheet" th:href="@{/css/custom.css}" />
     <title>ToDo Application</title>
@@ -28,7 +27,9 @@
         </thead>
         <tbody>
         <tr th:each="todo : ${todoItems}"
-            th:class="${todo.isDone ? 'bg-success bg-gradient' : ''}">
+            th:class="${todo.isDone ? 'bg-success bg-gradient' : ''}
+                      + ${todo.getIsOverdue ? 'bg-danger bg-gradient' : ''}"
+        >
             <td>
                 <div class="btn btn-group-sm" role="group">
                     <a class = "btn btn-info" th:href="@{/edit/{id}(id=${todo.id})}">
@@ -51,24 +52,34 @@
         </tr>
         </tbody>
     </table>
-    <p class="text-center">
-        <a class="btn btn-outline-success" href="/create-todo">
-            <i class="bi bi-plus-square-fill">
-                Create a new ToDo
-            </i>
-        </a>
-    </p>
+    <div class="d-flex justify-content-center align-items-center">
+        <p class="text-center margin-sides-10">
+            <a class="btn btn-outline-success" href="/create-todo">
+                <i class="bi bi-plus-square-fill">
+                    Create a new ToDo
+                </i>
+            </a>
+        </p>
+    </div>
 
-    <p class="text-center p-btn-outline-success">
-        <i class="bi bi-check-square-fill"></i>
-        Tasks completed:
-        <span th:text="${completedTasksCount}" class="text-success"></span>
-    </p>
-    <p class="text-center p-btn-outline-danger">
-        <i class="bi bi-x-square-fill"></i>
-        Tasks to be completed:
-        <span th:text="${notCompletedTasksCount}" class="text-danger"></span>
-    </p>
+
+    <div class="d-flex justify-content-center align-items-center">
+        <p class="text-center p-btn-outline-success margin-sides-10">
+            <i class="bi bi-check-square-fill"></i>
+            Tasks completed:
+            <span th:text="${completedTasksCount}" class="text-success"></span>
+        </p>
+        <p class="text-center p-btn-outline-clock margin-sides-10">
+            <i class="bi bi-clock"></i>
+            Tasks to be completed:
+            <span th:text="${notCompletedTasksCount}" class="text-warning"></span>
+        </p>
+        <p class="text-center p-btn-outline-danger margin-sides-10">
+            <i class="bi bi-x-square-fill"></i>
+            Tasks overdue:
+            <span th:text="${overdueTasksCount}" class="text-danger"></span>
+        </p>
+    </div>
 </div>
 <script th:src="@{/webjars/bootstrap/5.2.2/js/bootstrap.min.js}"></script>
 </body>
