@@ -9,8 +9,10 @@ This is a simple ToDo application built with Java, Spring Boot, and Thymeleaf.
 - Edit an existing ToDo item
 - Delete a ToDo item
 - Mark a ToDo item as done
-- Keep count of completed, and yet to be completed tasks
-
+- Keep count of completed tasks
+- Keep count of yet to be completed tasks
+- Keep count of overdue tasks (overdue tasks count as yet to be completed tasks, it's never too late!)
+  
 ## Technologies Used
 
 - Java
